@@ -51,7 +51,7 @@ class TitleState extends MusicBeatState
 	public static var initialized:Bool = false;
 	
 	public static var updateVersion:String = '';
-	public static var psycheEngineVersion:String = '0.0.1';
+	public static var psycheEngineVersion:String = '0.0.1h';
 	var startedIntro:Bool;
 
 	var mustUpdate:Bool = false;
@@ -422,7 +422,7 @@ class TitleState extends MusicBeatState
 			if (!OutdatedSubState.leftState)
 			{
 				trace('checking for update');
-			var http = new haxe.Http("https://raw.githubusercontent.com/ShadowMario/FNF-PsychEngine/main/gitVersion.txt");
+			var http = new haxe.Http("https://raw.githubusercontent.com/Pregmonaoter/FNF-Shart-Engine/main/version.txt");
 
 			http.onData = function (data:String)
 			{

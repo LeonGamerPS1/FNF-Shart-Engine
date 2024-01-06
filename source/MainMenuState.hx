@@ -165,7 +165,7 @@ class MainMenuState extends MusicBeatState
 		]);
 		#else
 		// FlxG.openURL('https://ninja-muffin24.itch.io/funkin');
-
+    
 		FlxG.openURL('https://www.kickstarter.com/projects/funkin/friday-night-funkin-the-full-ass-game/');
 		#end
 	}
