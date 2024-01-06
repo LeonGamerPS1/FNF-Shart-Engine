@@ -1964,9 +1964,9 @@ class PlayState extends MusicBeatState
 		// FlxG.watch.addQuick('VOL', vocals.amplitudeLeft);
 		// FlxG.watch.addQuick('VOLRight', vocals.amplitudeRight);
 
-		iconP1.setGraphicSize(Std.int(FlxMath.lerp(150, iconP1.width, .98)));
-		iconP2.setGraphicSize(Std.int(FlxMath.lerp(150, iconP2.width, .98)));
-    
+		iconP1.setGraphicSize(Std.int(FlxMath.lerp(150, iconP1.width, 0.85)));
+		iconP2.setGraphicSize(Std.int(FlxMath.lerp(150, iconP2.width, 0.85)));
+
 		iconP1.updateHitbox();
 		iconP2.updateHitbox();
 
@@ -1988,9 +1988,9 @@ class PlayState extends MusicBeatState
 		else
 			iconP2.animation.curAnim.curFrame = 0;
 
-		 if (FlxG.keys.justPressed.NINE)
-			FlxG.switchState(new ChartingState()); 
-        
+		/* if (FlxG.keys.justPressed.NINE)
+			FlxG.switchState(new Charting()); */
+
 		#if debug
 		if (FlxG.keys.justPressed.ONE)
 			endSong();
@@ -2322,7 +2322,7 @@ class PlayState extends MusicBeatState
 
 				if (SONG.validScore)
 				{
-					NGio.unlockMedal(60961);
+			
 					Highscore.saveWeekScore(storyWeek, campaignScore, storyDifficulty);
 				}
 
@@ -2786,7 +2786,14 @@ class PlayState extends MusicBeatState
 		var upP = controls.NOTE_UP_P;
 		var rightP = controls.NOTE_RIGHT_P;
 
-		
+		if (leftP)
+			noteMiss(0);
+		if (downP)
+			noteMiss(1);
+		if (upP)
+			noteMiss(2);
+		if (rightP)
+			noteMiss(3);
 	} */
 
 	function goodNoteHit(note:Note):Void
