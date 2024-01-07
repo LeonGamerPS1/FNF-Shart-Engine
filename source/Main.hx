@@ -1,5 +1,6 @@
 package;
 
+import FakeLoadingAnimState;
 import flixel.FlxGame;
 import flixel.FlxState;
 import openfl.Assets;
@@ -84,10 +85,10 @@ class Main extends Sprite
 		initialState = TitleState;
 		#end
 
-		addChild(new FlxGame(gameWidth, gameHeight, initialState,  framerate, framerate, skipSplash, startFullscreen));
+		addChild(new FlxGame(gameWidth, gameHeight, FakeLoadingAnimState,  framerate, framerate, skipSplash, startFullscreen));
 
 		#if !mobile
-		fpsCounter = new FPS(10, 3, 0xFFFFFF);
+		fpsCounter = new FPS(10, 3, 0x792121);
 		addChild(fpsCounter);
 		#end
 		/* 

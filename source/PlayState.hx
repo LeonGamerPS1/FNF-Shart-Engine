@@ -1491,7 +1491,7 @@ class PlayState extends MusicBeatState
 			if (generatedMusic)
 				notes.sort(sortNotes, FlxSort.DESCENDING);
 
-			var introSprPaths:Array<String> = ["ready", "set", "go"];
+			var introSprPaths:Array<String> = ["ready", "set","set","set", "go"];
 			var altSuffix:String = "";
 
 			if (curStage.startsWith("school"))
@@ -1744,6 +1744,26 @@ class PlayState extends MusicBeatState
 							babyArrow.animation.addByPrefix('static', 'arrow static instance 3');
 							babyArrow.animation.addByPrefix('pressed', 'right press', 24, false);
 							babyArrow.animation.addByPrefix('confirm', 'right confirm', 24, false);
+							case 4:
+								babyArrow.x += Note.swagWidth * 0;
+								babyArrow.animation.addByPrefix('static', 'arrow static instance 1');
+								babyArrow.animation.addByPrefix('pressed', 'left press', 24, false);
+								babyArrow.animation.addByPrefix('confirm', 'left confirm', 24, false);
+							case 5:
+								babyArrow.x += Note.swagWidth * 1;
+								babyArrow.animation.addByPrefix('static', 'arrow static instance 2');
+								babyArrow.animation.addByPrefix('pressed', 'down press', 24, false);
+								babyArrow.animation.addByPrefix('confirm', 'down confirm', 24, false);
+							case 6:
+								babyArrow.x += Note.swagWidth * 2;
+								babyArrow.animation.addByPrefix('static', 'arrow static instance 4');
+								babyArrow.animation.addByPrefix('pressed', 'up press', 24, false);
+								babyArrow.animation.addByPrefix('confirm', 'up confirm', 24, false);
+							case 7:
+								babyArrow.x += Note.swagWidth * 3;
+								babyArrow.animation.addByPrefix('static', 'arrow static instance 3');
+								babyArrow.animation.addByPrefix('pressed', 'right press', 24, false);
+								babyArrow.animation.addByPrefix('confirm', 'right confirm', 24, false);		
 					}
 			}
 

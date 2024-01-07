@@ -2,7 +2,7 @@
 <project>
 	<!-- _________________________ Application Settings _________________________ -->
 
-	<app title="Friday Night Funkin': Shart Engine" file="ShartEngine" packageName="com.ninjamuffin99.funkin" package="com.ninjamuffin99.funkin" main="Main" version="0.0.1h" company="ninjamuffin99" />
+	<app title="Friday Night Funkin': Shart Engine" file="ShartEngine" packageName="com.ninjamuffin99.funkin" package="com.ninjamuffin99.funkin" main="Main" version="0.0.2h" company="ninjamuffin99" />
 
 	<!--Switch Export with Unique ApplicationID and Icon-->
 	<set name="APP_ID" value="0x0100f6c013bbc000" />
@@ -60,6 +60,8 @@
 		<library name="week5"    preload="true" />
 		<library name="week6"    preload="true" />
 		<library name="week7"    preload="true" />
+
+		<library name="load"    preload="true" />
 	</section>
 	
 	<section if="NO_PRELOAD_ALL">
@@ -73,6 +75,8 @@
 		<library name="week5"    preload="false" />
 		<library name="week6"    preload="false" />
 		<library name="week7"    preload="false" />
+
+		<library name="load"    preload="false" />
 	</section>
 	
 	<assets path="assets/songs"    library="songs"    exclude="*.fla|*.ogg" if="web"/>
@@ -95,6 +99,7 @@
 	<assets path="assets/week6"    library="week6"    exclude="*.fla|*.mp3" unless="web"/>
 	<assets path="assets/week7"    library="week7"    exclude="*.fla|*.ogg" if="web"/>
 	<assets path="assets/week7"    library="week7"    exclude="*.fla|*.mp3" unless="web"/>
+	<assets path="assets/load"    library="load"    />
 	
 	<!-- <assets path='example_mods' rename='mods' embed='false'/> -->
 
@@ -125,6 +130,7 @@
 	<!--haxelib name="newgrounds" unless="switch"/> -->
 	<haxelib name="faxe" if='switch'/>
 	<haxelib name="polymod"/>
+	<haxelib name="haxe-gif"/>
 	<haxelib name="newgrounds"/>
 	<haxelib name="hxcpp-debug-server" if="desktop debug"/>
 	

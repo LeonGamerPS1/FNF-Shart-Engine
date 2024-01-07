@@ -284,7 +284,18 @@ class Character extends FlxSprite
 				flipX = true;
 
 				loadOffsetFile(curCharacter);
+				case 'death':
+					var tex = Paths.getSparrowAtlas('characters/Death');
+					frames = tex;
+					
+					quickAnimAdd('firstDeath', "BF Dead Confirm");
+					animation.addByPrefix('deathLoop', "BF Dead Loop", 24, true);
+					quickAnimAdd('deathConfirm', "BF Dead confirm");
+	
 
+	
+	
+					loadOffsetFile(curCharacter);
                case 'freed1':
 				var tex = Paths.getSparrowAtlas('characters/freed1');
 				frames = tex;
