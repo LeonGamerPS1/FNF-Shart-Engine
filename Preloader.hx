@@ -1,57 +1,40 @@
-package ;
- 
-import flixel.system.FlxBasePreloader;
-import openfl.display.Sprite;
-import flash.display.Bitmap;
-import flash.display.BitmapData;
-import flash.display.BlendMode;
-import flash.display.Sprite;
-import flash.Lib;
-import flixel.FlxG;
- 
-@:bitmap("art/preloaderArt.png") class LogoImage extends BitmapData { }
- 
-class Preloader extends FlxBasePreloader
+package;
+
+import flixel.tweens.FlxTween;
+import openfl.text.TextFormat;
+import openfl.text.TextField;
+import openfl.text.Font;
+import flixel.system.FlxPreloader;
+
+@:font("assets/fonts/vcr.ttf") class CustomFont extends Font {}
+
+class Preloader extends FlxPreloader
 {
-    public function new(MinDisplayTime:Float=3, ?AllowedURLs:Array<String>) 
-    {
-        super(MinDisplayTime, AllowedURLs);
-    }
-     
-    var logo:Sprite;
-     
-    override function create():Void 
-    {
-        this._width = Lib.current.stage.stageWidth;
-        this._height = Lib.current.stage.stageHeight;
-         
-        var ratio:Float = this._width / 2560; //This allows us to scale assets depending on the size of the screen.
-         
-        logo = new Sprite();
-        logo.addChild(new Bitmap(new LogoImage(0,0))); //Sets the graphic of the sprite to a Bitmap object, which uses our embedded BitmapData class.
-        logo.scaleX = logo.scaleY = ratio;
-        logo.x = ((this._width) / 2) - ((logo.width) / 2);
-        logo.y = (this._height / 2) - ((logo.height) / 2);
-        addChild(logo); //Adds the graphic to the NMEPreloader's buffer.
-         
-        super.create();
-    }
-     
-    override function update(Percent:Float):Void 
-    {
-        if(Percent < 69)
-        {
-            logo.scaleX += Percent / 1920;
-            logo.scaleY += Percent / 1920;
-            logo.x -= Percent * 0.6;
-            logo.y -= Percent / 2;
-        }else{
-            logo.scaleX = this._width / 1280;
-            logo.scaleY = this._width / 1280;
-            logo.x = ((this._width) / 2) - ((logo.width) / 2);
-            logo.y = (this._height / 2) - ((logo.height) / 2);
-        }
-        
-        super.update(Percent);
-    }
+	var text:TextField;
+
+	public function new(MinDisplayTime:Float = 0)
+	{
+		super(5);
+	}
+
+	override public function create()
+	{
+		super.create();
+		Font.registerFont(CustomFont);
+		text = new TextField();
+		text.defaultTextFormat = new TextFormat("VCR OSD Mono", 24, 0xff6f00ff);
+		text.text = "Loading Assets....";
+		text.embedFonts = true;
+		text.width = 109;
+		text.x = 1130;
+		text.y = 668;
+
+		addChild(text);
+	}
+
+	override public function update(elapsed:Float):Void
+	{
+		super.update(elapsed);
+		text.text = "Loading " + Std.int(elapsed * 100) + "%";
+	}
 }
