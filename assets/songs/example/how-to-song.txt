@@ -1,0 +1,5 @@
+1. create a new folder in songs named ur song name
+2. put the easy, normal, and hard charts in it
+3. put instrumental in (ogg)
+4. put vocals in if the song has vocals (ogg)
+5. go to freeplay and boom
