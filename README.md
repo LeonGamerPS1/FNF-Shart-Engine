@@ -1,6 +1,6 @@
-# Friday Night Funkin' Newb Engine
+# Friday Night Funkin' Shart Engine
 
-This is the repository for Newb Engine, a mod for a game called 'Friday Night Funkin', originally made for Ludum Dare 47 "Stuck In a Loop".
+This is the repository for Shart Engine, a mod for a game called 'Friday Night Funkin', originally made for Ludum Dare 47 "Stuck In a Loop".
 **QUICK NOTE: I RANDOMLY ADD SHIT TO THE GITHUB THAT ARENT FINISHED!! USING MASTER TO BUILD MIGHT NOT WORK LEL**
 
 Download the mod here: https://gamebanana.com/gamefiles/19689
