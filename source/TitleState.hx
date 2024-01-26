@@ -32,7 +32,7 @@ class TitleState extends MusicBeatState
 	static var initialized:Bool = false;
 	static public var soundExt:String = ".mp3";
 	public static var updateVersion:String = '';
-	public static var psycheEngineVersion:String = '0.0.3h';
+	public static var psycheEngineVersion:String = '0.1.0';
 
 	var mustUpdate:Bool = false;
 

@@ -1319,8 +1319,9 @@ class PlayState extends MusicBeatState
 		// FlxG.watch.addQuick('VOL', vocals.amplitudeLeft);
 		// FlxG.watch.addQuick('VOLRight', vocals.amplitudeRight);
 
-		iconP1.setGraphicSize(Std.int(FlxMath.lerp(150, iconP1.width, 0.50)));
-		iconP2.setGraphicSize(Std.int(FlxMath.lerp(150, iconP2.width, 0.50)));
+		iconP1.setGraphicSize(Std.int(FlxMath.lerp(150, iconP1.width, 0.90)));
+		iconP2.setGraphicSize(Std.int(FlxMath.lerp(150, iconP2.width, 0.90)));
+		
 
 		iconP1.updateHitbox();
 		iconP2.updateHitbox();
@@ -2273,7 +2274,10 @@ class PlayState extends MusicBeatState
 
 	var lightningStrikeBeat:Int = 0;
 	var lightningOffset:Int = 8;
-
+    var boyis:Bool = false;
+     function changeColor() {
+		
+	 }
 	override function beatHit()
 	{
 		super.beatHit();
@@ -2299,7 +2303,21 @@ class PlayState extends MusicBeatState
 		}
 		// FlxG.log.add('change bpm' + SONG.notes[Std.int(curStep / 16)].changeBPM);
 		wiggleShit.update(Conductor.crochet);
-
+        if (!boyis) {
+			boyis = !boyis;
+			
+			iconP1.angle = 40;
+			iconP2.angle = -40;
+			FlxTween.tween(iconP1, { angle: 0 }, 0.3, { type: FlxTween.PERSIST, ease: FlxEase.quadInOut });
+			FlxTween.tween(iconP2, { angle: 0 }, 0.3, { type: FlxTween.PERSIST, ease: FlxEase.quadInOut });
+		}
+		else {
+			boyis = !boyis;
+			iconP1.angle = -40;
+			iconP2.angle = 40;
+			FlxTween.tween(iconP2, { angle: 0 }, 0.3, { type: FlxTween.PERSIST, ease: FlxEase.quadInOut });
+			FlxTween.tween(iconP1, { angle: 0 }, 0.3, { type: FlxTween.PERSIST, ease: FlxEase.quadInOut });
+		}
 		// HARDCODING FOR MILF ZOOMS!
 		if (curSong.toLowerCase() == 'milf' && curBeat >= 168 && curBeat < 200 && camZooming && FlxG.camera.zoom < 1.35)
 		{
