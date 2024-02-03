@@ -11,7 +11,7 @@ typedef SwagSong =
 {
 	var song:String;
 	var notes:Array<SwagSection>;
-	var bpm:Int;
+	var bpm:Float;
 	var needsVoices:Bool;
 	var speed:Float;
 
@@ -24,7 +24,7 @@ class Song
 {
 	public var song:String;
 	public var notes:Array<SwagSection>;
-	public var bpm:Int;
+	public var bpm:Float;
 	public var needsVoices:Bool = true;
 	public var speed:Float = 1;
 
@@ -38,14 +38,9 @@ class Song
 		this.bpm = bpm;
 	}
 
-	public static function loadFromJson(jsonInput:String, ?folder:String, ?custom:Bool):SwagSong
+	public static function loadFromJson(jsonInput:String, ?folder:String):SwagSong
 	{
-		var rawJson:String;
-		if(custom)
-			rawJson = Assets.getText('assets/songs/' + folder.toLowerCase() + '/' + jsonInput.toLowerCase() + '.json').trim();
-		else
-			rawJson = Assets.getText('assets/data/' + folder.toLowerCase() + '/' + jsonInput.toLowerCase() + '.json').trim();
-		PlayState.custom = custom;
+		var rawJson = Assets.getText(Paths.json(folder.toLowerCase() + '/' + jsonInput.toLowerCase())).trim();
 
 		while (!rawJson.endsWith("}"))
 		{

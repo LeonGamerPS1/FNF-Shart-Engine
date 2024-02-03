@@ -1,3 +1,4 @@
 export/
 .vscode/
-push.bat
+APIStuff.hx
+.DS_STORE
